@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/register', [PageController::class, 'register']);
+Route::post('/register', [PageController::class, 'store']);
+
+
+
+Route::get('/profile', function () {
+    return view('admin.dashboard');
 });
